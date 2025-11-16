@@ -41,4 +41,446 @@
             @apply text-emerald-700 font-bold;
         }
         .tab-btn {
-            @apply py-3 px-5 text-sm md:text-base font-medium text-stone-500 border-b-2 border-transparent hover:border-stone-300 hover:text-stone-800 focus:outline-none
+            @apply py-3 px-5 text-sm md:text-base font-medium text-stone-500 border-b-2 border-transparent hover:border-stone-300 hover:text-stone-800 focus:outline-none transition-all duration-200;
+        }
+        .tab-btn.active {
+            @apply border-emerald-600 text-emerald-700;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 40vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .section-intro {
+            @apply text-lg text-stone-700 max-w-3xl mx-auto text-center mb-12;
+        }
+        .flow-box {
+            @apply p-4 bg-emerald-100 text-emerald-800 rounded-lg shadow-sm text-center font-medium;
+        }
+        .flow-arrow {
+            @apply text-3xl text-stone-400;
+        }
+        .skill-card {
+            @apply bg-white p-6 rounded-lg shadow-md border border-stone-200;
+        }
+        .skill-title {
+            @apply text-xl font-bold text-emerald-700 mb-3;
+        }
+        .skill-item {
+            @apply inline-block bg-stone-100 text-stone-700 rounded-full px-3 py-1 text-sm font-medium mr-2 mb-2;
+        }
+    </style>
+</head>
+<body class="bg-orange-50 text-stone-800 antialiased">
+
+    <header class="sticky top-0 w-full bg-white/80 backdrop-blur-lg shadow-sm z-50 border-b border-stone-200">
+        <nav class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold text-emerald-700">
+                    <a href="#intro">AI 패션 코치</a>
+                </div>
+                <div class="hidden md:flex">
+                    <ul class="flex items-center space-x-6">
+                        <li><a href="#intro" class="nav-link" data-nav="intro">소개</a></li>
+                        <li><a href="#project" class="nav-link" data-nav="project">프로젝트 상세</a></li>
+                        <li><a href="#tech" class="nav-link" data-nav="tech">기술 스택</a></li>
+                        <li><a href="#learn" class="nav-link" data-nav="learn">회고</a></li>
+                    </ul>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-stone-700 hover:text-emerald-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden px-4 pt-2 pb-4 space-y-2 bg-white">
+            <a href="#intro" class="block nav-link" data-nav="intro">소개</a>
+            <a href="#project" class="block nav-link" data-nav="project">프로젝트 상세</a>
+            <a href="#tech" class="block nav-link" data-nav="tech">기술 스택</a>
+            <a href="#learn" class="block nav-link" data-nav="learn">회고</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="intro" class="py-20 md:py-28 px-4">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="pr-0 md:pr-12">
+                    <span class="text-base font-medium text-emerald-600">곽영민 (Kwak Youngmin)</span>
+                    <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mt-2 mb-4">기획자를 꿈꾸는 개발자</h1>
+                    <p class="text-xl text-stone-700 mb-6">"다양한 경험을 토대로 기획자를 꿈꾸는 곽영민입니다."</p>
+                    <p class="text-base text-stone-600 leading-relaxed mb-6">
+                        늘 새로운 호기심을 보이며, 다양한 시도와 경험으로 스스로 발전합니다. 원활한 소통과 피드백의 중요성을 이해하고 있습니다.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:kwakyoungmin14@naver.com" class="inline-block bg-emerald-600 text-white font-medium px-5 py-2 rounded-lg hover:bg-emerald-700 transition-colors">이메일</a>
+                        <a href="https://github.com/fndhk" target="_blank" rel="noopener noreferrer" class="inline-block bg-stone-700 text-white font-medium px-5 py-2 rounded-lg hover:bg-stone-800 transition-colors">GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-stone-200">
+                    <h2 class="text-3xl font-bold text-stone-900 mb-6">프로젝트: AI 패션 코치</h2>
+                    
+                    <h3 class="text-xl font-bold text-emerald-700 mb-2">문제 정의</h3>
+                    <p class="text-stone-700 mb-6 leading-relaxed">
+                        자신의 패션 스타일에 대해 즉각적이고 객관적인 피드백을 받을 창구가 부족했습니다. 또한, 새 옷이 자신과 잘 어울릴지 미리 확인하기 어려웠습니다.
+                    </p>
+                    
+                    <h3 class="text-xl font-bold text-emerald-700 mb-2">목표</h3>
+                    <p class="text-stone-700 leading-relaxed">
+                        Gemini API를 활용하여, 사용자 사진 기반의 실시간 패션 분석, 가상 조합, 맞춤형 음악 추천까지 제공하는 **'개인 맞춤형 AI 스타일리스트 앱'**을 구현합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="project" class="py-20 md:py-28 px-4 bg-white border-t border-b border-stone-200">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-stone-900 mb-6">프로젝트 상세</h2>
+                <p class="section-intro">
+                    'AI 패션 코치'의 기술적 설계와 사용자가 경험하는 핵심 기능들을 자세히 살펴봅니다. 탭을 클릭하여 아키텍처 다이어그램과 각 기능의 상세 설명을 확인해 보세요.
+                </p>
+
+                <div class="w-full">
+                    <div class="flex flex-wrap justify-center border-b border-stone-300">
+                        <button class="tab-btn active" data-tab="architecture">아키텍처</button>
+                        <button class="tab-btn" data-tab="feature1">핵심 기능 1: AI 분석</button>
+                        <button class="tab-btn" data-tab="feature2">핵심 기능 2: 카메라</button>
+                        <button class="tab-btn" data-tab="feature3">핵심 기능 3: DB & 공유</button>
+                    </div>
+
+                    <div class="mt-8">
+                        <div id="architecture" class="tab-content">
+                            <h3 class="text-2xl font-bold text-stone-800 mb-4">애플리케이션 아키텍처</h3>
+                            <p class="text-stone-700 mb-6 leading-relaxed">
+                                Flutter를 사용하여 Android/iOS 크로스플랫폼 모바일 앱으로 설계했습니다.<br>
+                                - **AI (Gemini)**: 핵심 AI 로직은 Google Gemini API (gemini-2.5-flash)로 분리하여, 앱은 이미지와 프롬프트를 전송하고 구조화된 텍스트 응답을 받는 방식으로 구현했습니다.<br>
+                                - **Local DB (Hive)**: 사용자의 분석 내역 저장을 위해, 별도 서버 없이 가볍고 빠른 로컬 NoSQL 데이터베이스인 Hive를 채택했습니다.
+                            </p>
+                            
+                            <h4 class="text-xl font-bold text-stone-800 mb-4">App Flow (앱 흐름도)</h4>
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200">
+                                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                                    <div class="flow-box w-full md:w-auto">1. Splash Screen<br>(Hive DB 초기화)</div>
+                                    <div class="flow-arrow transform md:rotate-0">↓</div>
+                                    <div class="flow-box w-full md:w-auto">2. Home Screen<br>(3-Tabs Controller)</div>
+                                    <div class="flow-arrow transform md:rotate-0">↓</div>
+                                    <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 w-full md:w-auto">
+                                        <div class="p-2 bg-stone-200 text-stone-700 rounded text-center text-sm w-full">Tab 1: 카메라</div>
+                                        <div class="p-2 bg-stone-200 text-stone-700 rounded text-center text-sm w-full">Tab 2: 스타일 분석</div>
+                                        <div class="p-2 bg-stone-200 text-stone-700 rounded text-center text-sm w-full">Tab 3: 스타일 조합</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="feature1" class="tab-content hidden">
+                            <h3 class="text-2xl font-bold text-stone-800 mb-4">핵심 기능 1: 구조화된 AI 패션 분석 및 피드백</h3>
+                            <p class="text-stone-700 leading-relaxed">
+                                - 사용자가 갤러리에서 사진을 업로드하거나 앱 내 카메라로 직접 촬영합니다.<br>
+                                - Gemini API에 이미지와 함께 `[SCORE]`, `[MESSAGE]`, `[GOOD_POINTS]` 등 사전에 정의된 태그를 포함한 프롬프트를 전송합니다.<br>
+                                - AI가 반환한 구조화된 텍스트를 앱에서 파싱(parsing)하여, 점수와 멘트는 즉시 보여줍니다.<br>
+                                - '좋은 점', '아쉬운 점', '개선 제안' 등 상세 피드백은 사용자가 클릭 시 펼쳐볼 수 있는 `ExpansionTile` UI로 제공하여 UX를 개선했습니다.
+                            </p>
+                        </div>
+
+                        <div id="feature2" class="tab-content hidden">
+                            <h3 class="text-2xl font-bold text-stone-800 mb-4">핵심 기능 2: 카메라 연동 및 자동 분석 실행</h3>
+                            <p class="text-stone-700 leading-relaxed">
+                                - `camera` 패키지를 사용하여 앱의 첫 번째 탭에 실시간 카메라 프리뷰를 구현했습니다.<br>
+                                - `CameraController`를 통해 전/후면 카메라 전환 기능을 구현하고, 화면 비율이 찌그러지지 않도록 `AspectRatio`와 `Transform.scale`을 조합하여 화면을 최적화했습니다.<br>
+                                - 사진 촬영 시(`onPictureTaken` 콜백), 해당 이미지 파일을 '내 스타일 분석' 탭으로 즉시 전달하고, 탭을 자동으로 이동시킨 뒤 AI 분석(`_runStyleAnalysis`)을 바로 실행하여 사용자 동선을 최소화했습니다.
+                            </p>
+                        </div>
+
+                        <div id="feature3" class="tab-content hidden">
+                            <h3 class="text-2xl font-bold text-stone-800 mb-4">핵심 기능 3: 로컬 DB 연동 및 PDF 공유</h3>
+                            <p class="text-stone-700 leading-relaxed">
+                                - 모든 분석 결과(이미지 경로, 텍스트, 유튜브 검색어 등)는 Hive 로컬 데이터베이스에 `HistoryItem` 객체로 저장됩니다.<br>
+                                - '분석 내역' 화면에서 저장된 기록을 탭(스타일/조합)으로 분리하여 볼 수 있으며, 즐겨찾기(⭐) 필터링 및 삭제가 가능합니다.<br>
+                                - 내역 상세 보기 시, `pdf` 패키지를 사용하여 저장된 텍스트와 이미지를 PDF 파일로 동적 생성합니다.<br>
+                                - 한글과 이모티콘 깨짐 현상을 방지하기 위해 커스텀 폰트(Noto Sans KR)를 PDF에 내장(embed)하고, `share_plus` 패키지를 통해 생성된 PDF 파일을 공유합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="py-20 md:py-28 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-stone-900 mb-6">기술 스택</h2>
+                <p class="section-intro">
+                    이 프로젝트는 다양한 기술의 조합으로 완성되었습니다. 이 차트는 각 기술 범주에 사용된 스택의 수를 보여줍니다. 차트 아래에서 각 범주별 세부 기술을 확인할 수 있습니다.
+                </p>
+
+                <div class="chart-container mb-16">
+                    <canvas id="techStackChart"></canvas>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card">
+                        <h3 class="skill-title">Frontend</h3>
+                        <div>
+                            <span class="skill-item">HTML5</span>
+                            <span class="skill-item">CSS3</span>
+                            <span class="skill-item">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-title">Backend</h3>
+                        <div>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Spring</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-title">Infrastructure</h3>
+                        <div>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">C</span>
+                            <span class="skill-item">Arduino</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-title">AR / VR</h3>
+                        <div>
+                            <span class="skill-item">Unity</span>
+                            <span class="skill-item">C#</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-title">Database</h3>
+                        <div>
+                            <span class="skill-item">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-title">Mobile App (Flutter)</h3>
+                        <div>
+                            <span class="skill-item">Flutter</span>
+                            <span class="skill-item">camera</span>
+                            <span class="skill-item">pdf</span>
+                            <span class="skill-item">share_plus</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-title">AI</h3>
+                        <div>
+                            <span class="skill-item">Gemini API</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-title">Local DB</h3>
+                        <div>
+                            <span class="skill-item">Hive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn" class="py-20 md:py-28 px-4 bg-white border-t border-stone-200">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-stone-900 mb-6">회고 및 배운 점</h2>
+                <p class="section-intro">
+                    프로젝트를 완성하는 것도 중요하지만, 그 과정에서 무엇을 기여하고 배웠는지 정리하는 것은 더 중요합니다. 이 섹션에서는 저의 기여, 프로젝트의 성과, 그리고 회고를 공유합니다.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-orange-50/70 p-8 rounded-xl border border-orange-100">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-4">나의 역할 및 기여</h3>
+                        <ul class="list-disc list-inside space-y-2 text-stone-700 leading-relaxed">
+                            <li>Flutter 기반의 전체 애플리케이션 아키텍처 설계</li>
+                            <li>Gemini API 연동 및 AI 응답 파싱 로직 구현</li>
+                            <li>Hive 데이터베이스 스키마(HistoryItem) 설계 및 CRUD 로직 구현</li>
+                            <li>pdf 패키지와 커스텀 폰트를 활용한 PDF 리포트 생성 및 공유 기능 구현</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-orange-50/70 p-8 rounded-xl border border-orange-100">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-4">결과 및 성과</h3>
+                        <ul class="list-disc list-inside space-y-2 text-stone-700 leading-relaxed">
+                            <li>'실시간 이미지 기반 패션 피드백'이라는 핵심 가치를 제공하는 모바일 앱 개발 완료</li>
+                            <li>로컬 DB(Hive) 연동으로 사용자 데이터의 영구 보존 및 활용성 확보</li>
+                            <li>카메라, 갤러리, AI, PDF 생성 등 다양한 네이티브 기능과 API를 Flutter 앱 하나에 성공적으로 통합</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-emerald-50/70 p-8 rounded-xl border border-emerald-100">
+                        <h3 class="text-2xl font-bold text-emerald-800 mb-4">배운 점 (What I Learned)</h3>
+                        <p class="text-emerald-900 leading-relaxed">
+                            Gemini API에 정교한 프롬프트를 전송하여, 단순 텍스트가 아닌 구조화된 데이터(점수, 멘트, 피드백 항목 등)를 받아 파싱하는 **멀티모달 프롬프트 엔지니어링**의 중요성을 이해했습니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-red-50/70 p-8 rounded-xl border border-red-100">
+                        <h3 class="text-2xl font-bold text-red-800 mb-4">개선할 점 (What to Improve)</h3>
+                        <p class="text-red-900 leading-relaxed">
+                            **API 키 보안**: 현재 API 키가 앱 내(`gemini_api_key.dart`)에 포함되어 있어 보안에 매우 취약합니다. 향후 **Firebase Cloud Functions** 같은 백엔드 서버를 구축하여 API 키를 서버에 안전하게 보관하고, 앱은 이 개인 서버와 통신하도록 아키텍처를 개선해야 합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-10 bg-stone-800 text-stone-400 mt-20">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024. 곽영민 (Kwak Youngmin). All rights reserved.</p>
+            <p>본 페이지는 제공된 README.md 문서를 기반으로 생성된 인터랙티브 웹페이지입니다.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        if (content.id === targetTab) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            const techStackData = {
+                labels: ["Frontend", "Backend", "Infra", "AR/VR", "Database", "Mobile App", "AI", "Local DB"],
+                datasets: [{
+                    label: '기술 스택 수',
+                    data: [3, 3, 3, 2, 1, 4, 1, 1],
+                    backgroundColor: [
+                        'rgba(6, 182, 212, 0.6)',
+                        'rgba(234, 179, 8, 0.6)',
+                        'rgba(139, 92, 246, 0.6)',
+                        'rgba(236, 72, 153, 0.6)',
+                        'rgba(249, 115, 22, 0.6)',
+                        'rgba(2, 132, 199, 0.6)',
+                        'rgba(67, 56, 202, 0.6)',
+                        'rgba(217, 70, 239, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(6, 182, 212, 1)',
+                        'rgba(234, 179, 8, 1)',
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(236, 72, 153, 1)',
+                        'rgba(249, 115, 22, 1)',
+                        'rgba(2, 132, 199, 1)',
+                        'rgba(67, 56, 202, 1)',
+                        'rgba(217, 70, 239, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            const techStackChartCtx = document.getElementById('techStackChart');
+            if(techStackChartCtx) {
+                new Chart(techStackChartCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: techStackData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'x',
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y + '개';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-nav') === id);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if(targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    if (mobileMenu.classList.contains('hidden') === false) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
