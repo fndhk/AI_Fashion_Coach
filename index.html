@@ -9,27 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- Chosen Palette: Warm Neutrals (Background: bg-orange-50, Text: text-stone-800, Accent: emerald-700) -->
-    <!-- Application Structure Plan: 4-섹션 SPA 구조 (소개, 프로젝트, 기술, 배운 점)를 채택했습니다. README의 선형 구조 대신, 사용자가 관심 있는 주제(예: '기술' 또는 '핵심 기능')로 바로 이동할 수 있도록 상단 고정 탐색 바를 구현했습니다. '프로젝트' 섹션은 탭 인터페이스를 사용하여 아키텍처와 3가지 핵심 기능을 분리, 사용자가 한 번에 하나의 정보에 집중할 수 있게 설계했습니다. 이는 복잡한 앱 기능을 명확하게 전달하는 데 효과적입니다. '기술' 섹션은 Chart.js를 사용해 시각적 요약을 제공하고, '배운 점' 섹션은 카드로 정보를 분리하여 가독성을 높였습니다. 이 구조는 정보 탐색의 유연성과 사용성을 극대화하기 위해 선택되었습니다. -->
-    <!-- Visualization & Content Choices:
-        - Report Info: 기술 스택 표 (Skills Table)
-        - Goal: 기술 스택의 분포를 한눈에 요약하여 보여주기 (Inform, Compare)
-        - Viz/Presentation: Bar Chart (Chart.js) + HTML 리스트
-        - Interaction: 차트 호버 시 툴팁 표시.
-        - Justification: 원본 README의 이미지 배지 목록은 정적인 정보입니다. 이를 Chart.js 바 차트('범주별 기술 수')로 변환하여 프로젝트의 기술적 구성을 시각적으로 요약하고, SPA에 동적 요소를 추가했습니다. 차트만으로는 세부 정보가 부족하므로, 하단에 원본의 모든 기술 스택을 명확한 HTML 리스트로 함께 제공하여 정보의 시각적 요약과 상세 내역을 모두 충족시켰습니다.
-        - Library/Method: Chart.js (Canvas)
-        - Report Info: 아키텍처 App Flow (Architecture App Flow)
-        - Goal: 3-탭 앱의 흐름을 시각적으로 설명 (Organize)
-        - Viz/Presentation: HTML/CSS/Tailwind를 사용한 순서도 (Flowchart Diagram)
-        - Interaction: 없음 (정적 다이어그램).
-        - Justification: 아키텍처 설명은 텍스트만으로는 이해하기 어렵습니다. 원본의 'App Flow' 설명을 Tailwind와 HTML(flexbox, borders)을 사용한 간단한 시각적 다이어그램으로 재구성하여, 사용자가 앱의 작동 순서를 즉각적으로 파악할 수 있도록 했습니다. (SVG/Mermaid 사용 안 함).
-        - Report Info: 핵심 기능 1, 2, 3
-        - Goal: 상세한 기능 설명을 분리하여 제공 (Organize, Inform)
-        - Viz/Presentation: 탭(Tab) 인터페이스 (HTML/JS)
-        - Interaction: 탭 클릭 시 해당 기능의 설명만 동적으로 표시.
-        - Justification: 3가지 핵심 기능을 한 페이지에 나열하면 정보 과다가 발생합니다. 탭으로 분리하여 사용자가 '아키텍처', '기능 1', '기능 2', '기능 3' 중 원하는 정보만 선택적으로 탐색할 수 있게 하여, 복잡한 내용을 명확하고 구조적으로 전달합니다.
-        -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -114,6 +93,7 @@
     <main>
         <section id="intro" class="py-20 md:py-28 px-4">
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <!-- 왼쪽: 자기소개 -->
                 <div class="pr-0 md:pr-12">
                     <span class="text-base font-medium text-emerald-600">곽영민 (Kwak Youngmin)</span>
                     <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mt-2 mb-4">기획자를 꿈꾸는 개발자</h1>
@@ -123,22 +103,36 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="mailto:kwakyoungmin14@naver.com" class="inline-block bg-emerald-600 text-white font-medium px-5 py-2 rounded-lg hover:bg-emerald-700 transition-colors">이메일</a>
-                        <a href="https://github.com/fndhk" target="_blank" rel="noopener noreferrer" class="inline-block bg-stone-700 text-white font-medium px-5 py-2 rounded-lg hover:bg-stone-800 transition-colors">GitHub</a>
+                        <a href="https://github.com/fndhk" target="_blank" rel="noopener noreferrer" class="inline-block bg-stone-700 text-white font-medium px-5 py-2 rounded-lg hover:bg-stone-800 transition-colors">GitHub 프로필</a>
                     </div>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-stone-200">
-                    <h2 class="text-3xl font-bold text-stone-900 mb-6">프로젝트: AI 패션 코치</h2>
-                    
-                    <h3 class="text-xl font-bold text-emerald-700 mb-2">문제 정의</h3>
-                    <p class="text-stone-700 mb-6 leading-relaxed">
-                        자신의 패션 스타일에 대해 즉각적이고 객관적인 피드백을 받을 창구가 부족했습니다. 또한, 새 옷이 자신과 잘 어울릴지 미리 확인하기 어려웠습니다.
-                    </p>
-                    
-                    <h3 class="text-xl font-bold text-emerald-700 mb-2">목표</h3>
-                    <p class="text-stone-700 leading-relaxed">
-                        Gemini API를 활용하여, 사용자 사진 기반의 실시간 패션 분석, 가상 조합, 맞춤형 음악 추천까지 제공하는 '개인 맞춤형 AI 스타일리스트 앱'을 구현합니다.
-                    </p>
+                <!-- 오른쪽: 프로젝트 요약 카드 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-stone-900 mb-6">프로젝트: AI 패션 코치</h2>
+                        
+                        <h3 class="text-xl font-bold text-emerald-700 mb-2">문제 정의</h3>
+                        <p class="text-stone-700 mb-6 leading-relaxed">
+                            자신의 패션 스타일에 대해 즉각적이고 객관적인 피드백을 받을 창구가 부족했습니다. 또한, 새 옷이 자신과 잘 어울릴지 미리 확인하기 어려웠습니다.
+                        </p>
+                        
+                        <h3 class="text-xl font-bold text-emerald-700 mb-2">목표</h3>
+                        <p class="text-stone-700 leading-relaxed mb-6">
+                            Gemini API를 활용하여, 사용자 사진 기반의 실시간 패션 분석, 가상 조합, 맞춤형 음악 추천까지 제공하는 '개인 맞춤형 AI 스타일리스트 앱'을 구현합니다.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 border-t border-stone-100 mt-2">
+                        <a href="https://github.com/fndhk/AI_Fashion_Coach" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-full px-4 py-3 bg-stone-800 text-white rounded-lg hover:bg-stone-900 transition-colors shadow-sm">
+                            <svg class="w-5 h-5 mr-2 text-stone-300 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-medium">AI 패션 코치 다운로드 (GitHub)</span>
+                            <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </section>
